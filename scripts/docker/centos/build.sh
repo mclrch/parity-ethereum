@@ -5,7 +5,7 @@ PARITY_IMAGE_REPO=${PARITY_IMAGE_REPO:-parity/parity}
 # The tag to be used for builder image
 PARITY_BUILDER_IMAGE_TAG=${PARITY_BUILDER_IMAGE_TAG:-build}
 # The tag to be used for runner image
-PARITY_RUNNER_IMAGE_TAG=${PARITY_RUNNER_IMAGE_TAG:-latest}
+PARITY_RUNNER_IMAGE_TAG=${PARITY_RUNNER_IMAGE_TAG:-v2.5.13}
 
 echo Building $PARITY_IMAGE_REPO:$PARITY_BUILDER_IMAGE_TAG-$(git log -1 --format="%H")
 docker build --no-cache -t $PARITY_IMAGE_REPO:$PARITY_BUILDER_IMAGE_TAG-$(git log -1 --format="%H") . -f scripts/docker/centos/Dockerfile.build

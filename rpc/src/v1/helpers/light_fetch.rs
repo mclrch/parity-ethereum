@@ -261,6 +261,7 @@ where
 		//       Since light clients don't produce pending blocks
 		//       (they don't have state) we can safely fallback to `Latest`.
 		let id = match num.unwrap_or_default() {
+			BlockNumber::Hash { hash, .. } => BlockId::Hash(hash),
 			BlockNumber::Num(n) => BlockId::Number(n),
 			BlockNumber::Earliest => BlockId::Earliest,
 			BlockNumber::Latest => BlockId::Latest,
